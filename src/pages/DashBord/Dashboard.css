@@ -1,0 +1,250 @@
+.dashboard-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-container {
+  width: 100%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.header-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.language-select label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.language-select select {
+  padding: 5px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.location-dropdown {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.location-dropdown label {
+  font-weight: 600;
+  min-width: 70px;
+  text-align: right;
+  display: inline-block;
+}
+
+.location-dropdown select {
+  flex: 0 0 220px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.tank-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.tank {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #d7e4ec, #b3c5d0);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2),
+              0 0 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #4facfe, #00f2fe);
+  transition: height 0.4s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: riseBubble linear infinite;
+  z-index: 2;
+}
+
+@keyframes riseBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-100px) scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-200px) scale(1);
+    opacity: 0;
+  }
+}
+
+.level-display {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  z-index: 1;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px 25px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0;
+}
+
+.controls {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.controls label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.controls input[type="range"] {
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.instruction {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .tank {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card {
+    width: 150px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 20px 15px;
+    border-radius: 8px;
+  }
+
+  .tank-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .tank {
+    width: 160px;
+    height: 160px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+  }
+
+  .controls input[type="range"] {
+    width: 100%;
+  }
+
+  .level-display {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.9rem;
+  }
+}
